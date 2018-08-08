@@ -1,0 +1,77 @@
+.center-form
+{
+  width:650px;
+  height:400px;
+  margin:auto;
+  position: absolute;
+  top:0;left:0;bottom:0;right:0;
+  border-radius: 15px;
+  background: #ffffff;
+  opacity: 0.9;
+}
+
+#payment {
+  border-radius: 15px;
+  background: rgba(192, 192, 192, 1);
+  padding: 10px;
+  width: 280px;
+  height: 100px;
+}
+
+@font-face { font-family: "Raleway Extra Light"; src: url('fonts/Raleway/Raleway-ExtraLight.otf '); font-size: 120%; color: black; }
+
+#lbl_name_first { position:absolute; top:70px; left:5px; font-size:120%; font-weight:bold; }
+#name_first { position:absolute; top:85px; left:5px; }
+
+#lbl_name_last { position:absolute; top:70px; left:143px; font-size:120%; font-weight:bold; }
+#name_last { position:absolute; top:85px; left:143px; }
+
+#lbl_email { position:absolute; top:70px; left:337px; font-size:120%; font-weight:bold; }
+#email { position:absolute; top:85px; left:337px; }
+
+#lbl_organization { position:absolute; top:110px; left:5px; font-size:120%; font-weight:bold; }
+#organization { position:absolute; top:125px; left:5px; }
+
+#lbl_title { position:absolute; top:110px; left:337px; font-size:120%; font-weight:bold; }
+#title { position:absolute; top:125px; left:337px; }
+
+#lbl_fields_required { position:absolute; top:145px; left:5px; font-size:120%; }
+
+#lbl_student { position:absolute; top:170px; left:10px; font-size:120%; font-weight:bold; }
+#non_student { position:absolute; top:185px; left:20px; font-size:120%; }
+#student { position:absolute; top:185px; left:70px; font-size:120%; }
+
+#lbl_empfac { position:absolute; top:210px; left:10px; font-size:120%; font-weight:bold; }
+#non_empfac { position:absolute; top:225px; left:20px; font-size:120%; }
+#empfac { position:absolute; top:225px; left:70px; font-size:120%; }
+
+#lbl_membership { position:absolute; top:250px; left:10px; font-size:120%; font-weight:bold; }
+#non_member { position:absolute; top:265px; left:20px; font-size:120%; }
+#member { position:absolute; top:265px; left:70px; font-size:120%; }
+
+#lbl_days_attending { position:absolute; top:290px; left:10px; font-size:120%; font-weight:bold; }
+#all { position:absolute; top:290px; left:160px; font-size:120%;  font-weight: bold; }
+#lbl_individual_days { position:absolute; top:290px; left:290px; font-size:120%; font-weight:bold; }
+#day1 { position:absolute; top:290px; left:440px; font-size:120%; font-weight: bold; }
+#day2 { position:absolute; top:290px; left:510px; font-size:120%; font-weight: bold; }
+#day3 { position:absolute; top:290px; left:580px; font-size:120%; font-weight: bold; }
+
+#lbl_fee_total { position:absolute; top:310px; left:10px; font-size:120%; font-weight: bold; }
+#fee_total { position:absolute; top:310px; left:180px; font-size:120%; font-weight: bold; }
+
+#continue_errors { position:absolute; height:100px; top:335px; left:100px; font-weight:bold; color:red; display: none; }
+
+#payment { position:absolute; height:150px; top:220px; left:200px; font-weight:bold; display: none; }
+#payment_errors { position:absolute; height:100px; top:120px; left:20px; font-weight:bold; color:red;}
+
+#continue_button { position:absolute; height:100px; top:355px; left:255px; font-weight:bold; }
+#cancel_button { position:absolute; height:100px; top:140px; left:25px; font-weight:bold; }
+#submit_button { position:absolute; height:100px; top:140px; left:85px; font-weight:bold; }
+
+input { border: 0.5pt solid #000000; height:15px; vertical-align: middle; }
+input.organization { width:300px; }
+input.name_first { width:130px; }
+input.name_last { width:165px; }
+input.title { width:300px; }
+input.email { width:300px; }
+
