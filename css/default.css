@@ -1,5 +1,5 @@
 body {
-  background-image: url("../images/background.jpg");
+  background-image: url(../img/seattleSkyline_small.jpg);;
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #000000;
@@ -70,4 +70,52 @@ td { text-align: center; }
   border-radius: 15px;
   background: #ffffff;
   opacity: 0.9;
+}
+
+/* New Styles */
+#registration {
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius:10px;
+  background: #fff; /* fallback for browsers that don't understand rgba */
+  border: solid 1px #fff; /* fallback for browsers that don't understand rgba */
+  background-color: rgba(139, 135, 135, 0.3); /* slighly transparent white */
+  border-color: rgba(255,255,255,0.1); /*Very transparent black*/
+  padding: 10px 20px;
+}
+
+#registration fieldset {
+  padding-bottom: 25px;
+
+}
+
+#registration fieldset legend {
+  font-size: 1.7em;
+}
+
+.abc-radio label {
+  font-size: 1.5em;
+}
+
+.abc-checkbox label {
+  font-size: 1.5em;
+}
+
+#payment {
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius:10px;
+
+  background-color: rgba(52,58,64,0.5);
+}
+
+#payment label{
+  font-size: 1.5em;
+}
+#payment .exp {
+  width: 100%;
+}
+
+#payment .exp .form-control {
+  width: 3em;
 }
