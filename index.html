@@ -33,13 +33,15 @@
 
   <!-- Libraries CSS Files -->
   <!-- <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet"> -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+    crossorigin="anonymous">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
 
   <link href='css/awesome-bootstrap-checkbox.css' rel='stylesheet'>
   <link href='css/default.css' rel="stylesheet">
-  
-  <!-- Main Stylesheet File -->
-  <link href="https://cdn.rawgit.com/pmanko/www.uwfhir.org/master/css/style.css" rel="stylesheet">
+
 
   <!-- =======================================================
     Theme Name: Bell
@@ -53,14 +55,13 @@
   <!-- Page Content
     ================================================== -->
   <!-- Hero -->
-  <section class="hero">
+  <section class="rsvp hero">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-8" id='registration'>
           <h2>2018 UW FHIR Workshop Registration</h2>
           <div class='form'>
-            <form id="rsvpForm" name="rsvpForm" action="thankyou.php" method="post"> 
-              <fieldset>
+            <form id="rsvpForm" name="rsvpForm" action="thankyou.php" method="post">
               <div class='row'>
                 <div class='col'>
                   <div class="form-group">
@@ -85,150 +86,159 @@
               </div>
               </fieldset>
 
-              <fieldset>
-                <legend>Are you a student?</legend>
-                <div class="form-check form-check-inline abc-radio">
-                  <input class="form-check-input" type="radio" name="student" id="studentno" value="no" onclick="calc_fee();" checked>
-                  <label class="form-check-label" for="studentno">No</label>
-                </div>
-
-                <div class="form-check form-check-inline abc-radio">
-                  <input class="form-check-input" type="radio" name="student" id="studentyes" value="yes" onclick="calc_fee();">
-                  <label class="form-check-label" for="studentyes">Yes</label>
-                </div>
-              </fieldset>
-
-              <fieldset>
-                <legend>Are you a Washington University employee or faculty?</legend>
-                <div class="form-check form-check-inline abc-radio">
-                  <input class="form-check-input" type="radio" name="empfac" id="empfacno" value="no" onclick="calc_fee();" checked>
-                  <label class="form-check-label" for="empfacno">No</label>
-                </div>
-
-                <div class="form-check form-check-inline abc-radio">
-                  <input class="form-check-input" type="radio" name="empfac" id="empfacyes" value="yes" onclick="calc_fee();">
-                  <label class="form-check-label" for="empfacyes">Yes</label>
-                </div>
-              </fieldset>
-
-              <fieldset>
-                <legend>Have you or your organization has paid benefactor, associate, or individual membership dues to HSPC?</legend>
-                <div id="lbl_membership">
-                  <a href="http://hspconsortium.org/membership/member-list/" target="_blank"></a>
-                </div>
-                
-                <div class="form-check form-check-inline abc-radio">
-                  <input class="form-check-input" type="radio" name="member" id="memberno" value="no" onclick="calc_fee();" checked>
-                  <label class="form-check-label" for="memberno">No</label>
-                </div>
-
-                <div class="form-check form-check-inline abc-radio">
-                  <input class="form-check-input" type="radio" name="member" id="memberyes" value="yes" onclick="calc_fee();">
-                  <label class="form-check-label" for="memberyes">Yes</label>
-                </div>
-              </fieldset>
-
+              <br />
 
               <fieldset>
                 <legend>Which days will you attend?</legend>
                 <div class="form-check form-check-inline abc-checkbox">
                   <input class="form-check-input" type="checkbox" name='all' id="all_input" value="yes" onclick="all_conf();">
                   <label class="form-check-label" for="all_input">Full Conference (Sept 23 & 24)</label>
-                </div>      
+                </div>
                 <div class="form-check form-check-inline abc-checkbox">
                   <input class="form-check-input" type="checkbox" name="day1" id="day1_input" value="yes" onclick="calc_fee();">
                   <label class="form-check-label" for="day1_input">Only Sept 23</label>
-                </div>      
+                </div>
                 <div class="form-check form-check-inline abc-checkbox">
                   <input class="form-check-input" type="checkbox" name='day2' id="day2_input" value="yes" onclick="calc_fee();">
                   <label class="form-check-label" for="day2_input">Only Sept 24</label>
-                </div>      
+                </div>
               </fieldset>
 
-              <input type="hidden" id="member_val" name="member_val" value="">
-              <input type="hidden" id="all_val" name="all_val" value="">
-              <input type="hidden" id="day1_val" name="day1_val" value="">
-              <input type="hidden" id="day2_val" name="day2_val" value="">
 
-              <h3 id="lbl_fee_total">Registration fee total: <span id="fee_total">$0</span></h4>
-              <input id="reg_fee_total" type="hidden" name="reg_fee_total">
+              <fieldset>
+                <legend>Please tell us which registration category you fall in:</legend>
+                <div class='form-row text-left rsvp-radio-row'>
+                  <div class='col-sm-8 radio-label'>Are you a full-time student? <span class='rsvp-hint'>(* register with your school email)</span></div>
+                  <div class="form-check col-2 abc-radio">
+                    <input class="form-check-input" type="radio" name="student" id="studentno" value="no" onclick="calc_fee();" checked>
+                    <label class="form-check-label" for="studentno">No</label>
+                  </div>
 
-              <p class='' id="lbl_fields_required" > *You must complete all fields to RSVP</p>
+                  <div class="form-check col-2 abc-radio">
+                    <input class="form-check-input" type="radio" name="student" id="studentyes" value="yes" onclick="calc_fee();">
+                    <label class="form-check-label" for="studentyes">Yes</label>
+                  </div>
+                </div>
 
-              <span id="continue_errors"></span>
+                <div class='form-row text-left rsvp-radio-row'>
+                  <div class='col-sm-8 radio-label'>Are you a Washington University employee or faculty?</div>
+                  <div class="form-check col-sm-2 abc-radio">
+                    <input class="form-check-input" type="radio" name="empfac" id="empfacno" value="no" onclick="calc_fee();" checked>
+                    <label class="form-check-label" for="empfacno">No</label>
+                  </div>
 
-              <div id="continue_button">
-                <button type="button" class="continue_button btn btn-lg btn-primary" id="continue" onclick="continue_clicked();">Continue to payment</button>
-              </div>
-              <br />
+                  <div class="form-check col-sm-2 abc-radio">
+                    <input class="form-check-input" type="radio" name="empfac" id="empfacyes" value="yes" onclick="calc_fee();">
+                    <label class="form-check-label" for="empfacyes">Yes</label>
+                  </div>
+                </div>
+
+                <div class='form-row text-left rsvp-radio-row'>
+                  <div class='col-sm-8 radio-label'>Have you or your organization has paid benefactor, associate, or individual membership dues to
+                    <a href="http://hspconsortium.org/membership/member-list/" target="_blank">HSPC</a>?
+                  </div>
+                  <div class="form-check col-sm-2 abc-radio">
+                    <input class="form-check-input" type="radio" name="member" id="memberno" value="no" onclick="calc_fee();" checked>
+                    <label class="form-check-label" for="memberno">No</label>
+                  </div>
+
+                  <div class="form-check col-sm-2 abc-radio">
+                    <input class="form-check-input" type="radio" name="member" id="memberyes" value="yes" onclick="calc_fee();">
+                    <label class="form-check-label" for="memberyes">Yes</label>
+                  </div>
+                </div>
+
+              </fieldset>
+
               
-              <div class='card bg-dark' id="payment">
-                <div class='card-header'>
-                  <h3>
-                    <span class='pull-left'>Secure Registration Payment</span>
-                    <img class='pull-right' src='img/powered_by_stripe.png'>
-                  </h3>
-                </div>
-                <div class='card-body'>
+                <input type="hidden" id="member_val" name="member_val" value="">
+                <input type="hidden" id="all_val" name="all_val" value="">
+                <input type="hidden" id="day1_val" name="day1_val" value="">
+                <input type="hidden" id="day2_val" name="day2_val" value="">
 
-                  <div class="form-group row">
-                    <label for="name" class="col-sm-3 col-form-label">Name on Card</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" data-stripe="name">
-                    </div>
+                <h3 id="lbl_fee_total">Registration fee total:
+                  <span id="fee_total">$0</span>
+                  </h4>
+                  <input id="reg_fee_total" type="hidden" name="reg_fee_total">
+
+                  <p class='' id="lbl_fields_required"> *You must complete all fields to RSVP</p>
+
+                  <span id="continue_errors"></span>
+
+                  <div id="continue_button">
+                    <button type="button" class="continue_button btn btn-lg btn-primary" id="continue" onclick="continue_clicked();">Continue to payment</button>
                   </div>
-                  <div class="form-group row">
-                    <label for="number" class="col-sm-3 col-form-label">Card Number</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" data-stripe="number">
+                  <br />
+
+                  <div class='card bg-dark' id="payment">
+                    <div class='card-header'>
+                      <h3>
+                        <span class='pull-left'>Secure Registration Payment</span>
+                        <img class='pull-right' src='img/powered_by_stripe.png'>
+                      </h3>
                     </div>
-                  </div>
-                  
-                  <div class="form-group row form-inline">
-                    <label for='exp_month' class="col-sm-3 col-form-label"><span>Expiration (MM/YY)</span></label>
-                    <div class='col-sm-9'>
-                      <div class='exp'>
-                      <input type="text" maxlength="2" class='form-control' size="2" data-stripe="exp_month">
-                      /
-                      <input maxlength="2" class='form-control' type="text" size="2" data-stripe="exp_year"></div>
+                    <div class='card-body'>
+
+                      <div class="form-group row">
+                        <label for="name" class="col-sm-3 col-form-label">Name on Card</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" data-stripe="name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="number" class="col-sm-3 col-form-label">Card Number</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" data-stripe="number">
+                        </div>
+                      </div>
+
+                      <div class="form-group row form-inline">
+                        <label for='exp_month' class="col-sm-3 col-form-label">
+                          <span>Expiration (MM/YY)</span>
+                        </label>
+                        <div class='col-sm-9'>
+                          <div class='exp'>
+                            <input type="text" maxlength="2" class='form-control' size="2" data-stripe="exp_month"> /
+                            <input maxlength="2" class='form-control' type="text" size="2" data-stripe="exp_year">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group row form-inline">
+                        <label for='cvc' class="col-sm-3 col-form-label">CVC</label>
+                        <div class='col-sm-9'>
+                          <input class='form-control' type="text" size="4" data-stripe="cvc">
+                        </div>
+                      </div>
+
+                      <span id="payment_errors" class="payment-errors"></span>
+
+                      <span id="cancel_button">
+                        <button type="button" class="cancel_button btn btn-ghost" onclick="cancel_clicked();">Cancel</button>
+                      </span>
+                      &nbsp;&nbsp;
+                      <span id="submit_button">
+                        <button type="submit" class="btn btn-primary submit" value="Submit">Submit RSVP & Payment</button>
+                      </span>
                     </div>
+
+
+
+
+
+
+
+
+
+
+
                   </div>
-
-                  <div class="form-group row form-inline">
-                    <label for='cvc' class="col-sm-3 col-form-label">CVC</label>
-                    <div class='col-sm-9'>
-                      <input class='form-control' type="text" size="4" data-stripe="cvc">
-                    </div>
-                  </div>
-
-                  <span id="payment_errors" class="payment-errors"></span>
-
-                  <span id="cancel_button">
-                    <button type="button" class="cancel_button btn btn-ghost" onclick="cancel_clicked();">Cancel</button>
-                  </span>
-                  &nbsp;&nbsp;
-                  <span id="submit_button">
-                    <button type="submit" class="btn btn-primary submit" value="Submit">Submit RSVP & Payment</button>
-                  </span>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-                </div>
-              </div>
-
-            </form>
           </div>
+
+          </form>
         </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -238,7 +248,7 @@
   <!-- /Hero -->
 
 
-  
+
   <footer class="site-footer">
     <div class="bottom">
       <div class="container">
@@ -249,7 +259,8 @@
               © BELL Theme
             </p>
             <div class="credits">
-             Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+              Designed by
+              <a href="https://bootstrapmade.com/">BootstrapMade</a>
             </div>
           </div>
 
@@ -257,7 +268,9 @@
       </div>
     </div>
   </footer>
-  <a class="scrolltop" href="#"><span class="fa fa-angle-up"></span></a>
+  <a class="scrolltop" href="#">
+    <span class="fa fa-angle-up"></span>
+  </a>
 
 
   <script type="text/javascript" src="js/gen_validatorv4.js"></script>
@@ -286,191 +299,198 @@
   <script src="js/custom.js"></script>
 
   <script type="text/javascript">
-  Stripe.setPublishableKey('pk_live_ecfXF97pISNCQozJ2zHjzWdt');
-  $(function() {
-    var $form = $('#rsvpForm');
-    $form.submit(function(event) {
-      // Disable the submit button to prevent repeated clicks:
-      $form.find('.submit').prop('disabled', true);
+    Stripe.setPublishableKey('pk_live_ecfXF97pISNCQozJ2zHjzWdt');
+    $(function () {
+      var $form = $('#rsvpForm');
+      $form.submit(function (event) {
+        // Disable the submit button to prevent repeated clicks:
+        $form.find('.submit').prop('disabled', true);
 
-      // Request a token from Stripe:
-      Stripe.card.createToken($form, stripeResponseHandler);
+        // Request a token from Stripe:
+        Stripe.card.createToken($form, stripeResponseHandler);
 
-      // Prevent the form from being submitted:
-      return false;
+        // Prevent the form from being submitted:
+        return false;
+      });
     });
-  });
 
-  function stripeResponseHandler(status, response) {
-    // Grab the form:
-    var $form = $('#rsvpForm');
+    function stripeResponseHandler(status, response) {
+      // Grab the form:
+      var $form = $('#rsvpForm');
 
-    if (response.error) { // Problem!
-      // Show the errors on the form:
-      $form.find('.payment-errors').text(response.error.message);
-      $form.find('.submit').prop('disabled', false); // Re-enable submission
-    } else { // Token was created!
-      // Get the token ID:
-      var token = response.id;
-      // Insert the token ID into the form so it gets submitted to the server:
-      $form.append($('<input type="hidden" name="stripeToken">').val(token));
-      // Submit the form:
-      $form.get(0).submit();
-    }
-  };
+      if (response.error) { // Problem!
+        // Show the errors on the form:
+        $form.find('.payment-errors').text(response.error.message);
+        $form.find('.submit').prop('disabled', false); // Re-enable submission
+      } else { // Token was created!
+        // Get the token ID:
+        var token = response.id;
+        // Insert the token ID into the form so it gets submitted to the server:
+        $form.append($('<input type="hidden" name="stripeToken">').val(token));
+        // Submit the form:
+        $form.get(0).submit();
+      }
+    };
   </script>
 
   <script type="text/javascript">
-  var registration_fee = {
-    day_1: { student: 15, empfac: 25, member: 50, non_member: 60 },
-    day_2: { student: 25, empfac: 75, member: 100, non_member: 150 },
-    all:   { student: 30, empfac: 100, member: 150, non_member: 200 }
-  };
+    var registration_fee = {
+      day_1: { student: 15, empfac: 25, member: 50, non_member: 60 },
+      day_2: { student: 25, empfac: 75, member: 100, non_member: 150 },
+      all: { student: 30, empfac: 100, member: 150, non_member: 200 }
+    };
 
-  var registration_total = 0;
-  var member_type = '';
-  var days_attending = '';
+    var registration_total = 0;
+    var member_type = '';
+    var days_attending = '';
 
-  function calc_fee() {
-    registration_total = 0;
-    member_type = '';
-    days_attending = '';
+    function calc_fee() {
+      registration_total = 0;
+      member_type = '';
+      days_attending = '';
 
-    if($('#studentyes').is(':checked')) { member_type = 'student'; }
-    else if($('#empfacyes').is(':checked')) { member_type = 'empfac'; }
-    else if($('#memberyes').is(':checked')) { member_type = 'member'; }
-    else { member_type = 'non_member'; }
+      if ($('#studentyes').is(':checked')) { member_type = 'student'; }
+      else if ($('#empfacyes').is(':checked')) { member_type = 'empfac'; }
+      else if ($('#memberyes').is(':checked')) { member_type = 'member'; }
+      else { member_type = 'non_member'; }
 
-    if($('#all_input').is(':checked')) { days_attending = 'all'; }
-    else if($('#day1_input').is(':checked') && $('#day2_input').is(':checked')) { days_attending = 'all'; }
-    else if($('#day1_input').is(':checked')) { days_attending = 'day_1'; }
-    else if($('#day2_input').is(':checked')) { days_attending = 'day_2'; }
+      if ($('#all_input').is(':checked')) { days_attending = 'all'; }
+      else if ($('#day1_input').is(':checked') && $('#day2_input').is(':checked')) { days_attending = 'all'; }
+      else if ($('#day1_input').is(':checked')) { days_attending = 'day_1'; }
+      else if ($('#day2_input').is(':checked')) { days_attending = 'day_2'; }
 
-    if(days_attending != '') {
-      registration_total = registration_fee[days_attending][member_type];
-    }
+      if (days_attending != '') {
+        registration_total = registration_fee[days_attending][member_type];
+      }
 
-    $('#fee_total').text('$' + registration_total.toString());
-  };
+      $('#fee_total').text('$' + registration_total.toString());
+    };
 
-  function all_conf() {
-    if($('#all_input').is(':checked')) {
-      $('#day1_input').prop('checked', true);
-      $('#day2_input').prop('checked', true);
+    function all_conf() {
+      if ($('#all_input').is(':checked')) {
+        $('#day1_input').prop('checked', true);
+        $('#day2_input').prop('checked', true);
 
-      $('#day1_input').prop('disabled', true);
-      $('#day2_input').prop('disabled', true);
-    } else {
-      $('#day1_input').prop('checked', false);
-      $('#day2_input').prop('checked', false);
+        $('#day1_input').prop('disabled', true);
+        $('#day2_input').prop('disabled', true);
+      } else {
+        $('#day1_input').prop('checked', false);
+        $('#day2_input').prop('checked', false);
 
-      $('#day1_input').removeProp('disabled');
-      $('#day2_input').removeProp('disabled');
-    }
-
-    calc_fee();
-  };
-
-  function continue_clicked() {
-    calc_fee();
-
-    if($('#all_input').is(':checked')) { $('#all_val').val('yes'); } else { $('#all_val').val('no'); }
-    if($('#day1_input').is(':checked')) { $('#day1_val').val('yes'); } else { $('#day1_val').val('no'); }
-    if($('#day2_input').is(':checked')) { $('#day2_val').val('yes'); } else { $('#day2_val').val('no'); }
-
-    $('#reg_fee_total').val(registration_total.toString());
-
-    if(member_type == 'student') { $('#member_val').val('Student'); }
-    else if(member_type == 'empfac') { $('#member_val').val('EmployeeOrFaculty'); }
-    else if(member_type == 'member') { $('#member_val').val('HSPC Member'); }
-    else if(member_type == 'non_member') { $('#member_val').val('Other'); }
-
-    if(($('#name_first_input').val().length !== 0)&&
-      ($('#name_last_input').val().length !== 0)&&
-      ($('#email_input').val().length !== 0)&&
-      ($('#organization_input').val().length !== 0)&&
-      ($('#title_input').val().length !== 0)&&
-      ($('#day1_input').is(':checked')||$('#day2_input').is(':checked')||$('#all_input').is(':checked'))&&
-  (checkEmail($('#email_input').val()))) {
-        $('#continue_errors').text('');
-        $('#continue').prop('disabled',true);
-        $('#payment').show();
-        toggle_fields('off');
-    } else {
-      $('#continue_errors').show();
-      $('#continue_errors').text('Required: All fields filled in... a valid email address... and at least one day selected!');
-    }
-  };
-
-  function cancel_clicked() {
-    $('#payment').hide();
-    $('#continue_errors').text('');
-    $('#continue_errors').show();
-    $('#continue').removeProp('disabled');
-    toggle_fields('on');
-  };
-
-  function toggle_fields(d) {
-    if(d == 'off') {
-      $('#name_first_input').prop('readonly', true);
-      $('#name_last_input').prop('readonly', true);
-      $('#email_input').prop('readonly', true);
-      $('#organization_input').prop('readonly', true);
-      $('#title_input').prop('readonly', true);
-      $('#studentyes').prop('disabled', true);
-      $('#studentno').prop('disabled', true);
-      $('#empfacyes').prop('disabled', true);
-      $('#empfacno').prop('disabled', true);
-      $('#memberyes').prop('disabled', true);
-      $('#memberno').prop('disabled', true);
-      $('#day1_input').prop('disabled', true);
-      $('#day2_input').prop('disabled', true);
-      $('#all_input').prop('disabled', true);
-    } else {
-      $('#name_first_input').prop('readonly', false);
-      $('#name_last_input').prop('readonly', false);
-      $('#email_input').prop('readonly', false);
-      $('#organization_input').prop('readonly', false);
-      $('#title_input').prop('readonly', false);
-      $('#studentyes').removeProp('disabled');
-      $('#studentno').removeProp('disabled');
-      $('#empfacyes').removeProp('disabled');
-      $('#empfacno').removeProp('disabled');
-      $('#memberyes').removeProp('disabled');
-      $('#memberno').removeProp('disabled');
-      $('#all_input').removeProp('disabled');
-
-      if(!$('#all_input').is(':checked')) {
         $('#day1_input').removeProp('disabled');
         $('#day2_input').removeProp('disabled');
       }
-    }
-  };
 
-  function checkEmail(emailAddress) {
-    var sQtext = '[^\\x0d\\x22\\x5c\\x80-\\xff]';
-    var sDtext = '[^\\x0d\\x5b-\\x5d\\x80-\\xff]';
-    var sAtom = '[^\\x00-\\x20\\x22\\x28\\x29\\x2c\\x2e\\x3a-\\x3c\\x3e\\x40\\x5b-\\x5d\\x7f-\\xff]+';
-    var sQuotedPair = '\\x5c[\\x00-\\x7f]';
-    var sDomainLiteral = '\\x5b(' + sDtext + '|' + sQuotedPair + ')*\\x5d';
-    var sQuotedString = '\\x22(' + sQtext + '|' + sQuotedPair + ')*\\x22';
-    var sDomain_ref = sAtom;
-    var sSubDomain = '(' + sDomain_ref + '|' + sDomainLiteral + ')';
-    var sWord = '(' + sAtom + '|' + sQuotedString + ')';
-    var sDomain = sSubDomain + '(\\x2e' + sSubDomain + ')*';
-    var sLocalPart = sWord + '(\\x2e' + sWord + ')*';
-    var sAddrSpec = sLocalPart + '\\x40' + sDomain; // complete RFC822 email address spec
-    var sValidEmail = '^' + sAddrSpec + '$'; // as whole string
+      calc_fee();
+    };
 
-    var reValidEmail = new RegExp(sValidEmail);
+    function continue_clicked() {
+      calc_fee();
 
-    return reValidEmail.test(emailAddress);
-  };
+      if ($('#all_input').is(':checked')) { $('#all_val').val('yes'); } else { $('#all_val').val('no'); }
+      if ($('#day1_input').is(':checked')) { $('#day1_val').val('yes'); } else { $('#day1_val').val('no'); }
+      if ($('#day2_input').is(':checked')) { $('#day2_val').val('yes'); } else { $('#day2_val').val('no'); }
+
+      $('#reg_fee_total').val(registration_total.toString());
+
+      if (member_type == 'student') { $('#member_val').val('Student'); }
+      else if (member_type == 'empfac') { $('#member_val').val('EmployeeOrFaculty'); }
+      else if (member_type == 'member') { $('#member_val').val('HSPC Member'); }
+      else if (member_type == 'non_member') { $('#member_val').val('Other'); }
+
+      if (($('#name_first_input').val().length !== 0) &&
+        ($('#name_last_input').val().length !== 0) &&
+        ($('#email_input').val().length !== 0) &&
+        ($('#organization_input').val().length !== 0) &&
+        ($('#title_input').val().length !== 0) &&
+        ($('#day1_input').is(':checked') || $('#day2_input').is(':checked') || $('#all_input').is(':checked')) &&
+        (checkEmail($('#email_input').val()))) {
+        $('#continue_errors').text('');
+        $('#continue').prop('disabled', true);
+        $('#payment').show();
+        toggle_fields('off');
+      } else {
+        $('#continue_errors').show();
+        $('#continue_errors').text('Required: All fields filled in... a valid email address... and at least one day selected!');
+      }
+    };
+
+    function cancel_clicked() {
+      $('#payment').hide();
+      $('#continue_errors').text('');
+      $('#continue_errors').show();
+      $('#continue').removeProp('disabled');
+      toggle_fields('on');
+    };
+
+    function toggle_fields(d) {
+      if (d == 'off') {
+        $('#name_first_input').prop('readonly', true);
+        $('#name_last_input').prop('readonly', true);
+        $('#email_input').prop('readonly', true);
+        $('#organization_input').prop('readonly', true);
+        $('#title_input').prop('readonly', true);
+        $('#studentyes').prop('disabled', true);
+        $('#studentno').prop('disabled', true);
+        $('#empfacyes').prop('disabled', true);
+        $('#empfacno').prop('disabled', true);
+        $('#memberyes').prop('disabled', true);
+        $('#memberno').prop('disabled', true);
+        $('#day1_input').prop('disabled', true);
+        $('#day2_input').prop('disabled', true);
+        $('#all_input').prop('disabled', true);
+      } else {
+        $('#name_first_input').prop('readonly', false);
+        $('#name_last_input').prop('readonly', false);
+        $('#email_input').prop('readonly', false);
+        $('#organization_input').prop('readonly', false);
+        $('#title_input').prop('readonly', false);
+        $('#studentyes').removeProp('disabled');
+        $('#studentno').removeProp('disabled');
+        $('#empfacyes').removeProp('disabled');
+        $('#empfacno').removeProp('disabled');
+        $('#memberyes').removeProp('disabled');
+        $('#memberno').removeProp('disabled');
+        $('#all_input').removeProp('disabled');
+
+        if (!$('#all_input').is(':checked')) {
+          $('#day1_input').removeProp('disabled');
+          $('#day2_input').removeProp('disabled');
+        }
+      }
+    };
+
+    function checkEmail(emailAddress) {
+      var sQtext = '[^\\x0d\\x22\\x5c\\x80-\\xff]';
+      var sDtext = '[^\\x0d\\x5b-\\x5d\\x80-\\xff]';
+      var sAtom = '[^\\x00-\\x20\\x22\\x28\\x29\\x2c\\x2e\\x3a-\\x3c\\x3e\\x40\\x5b-\\x5d\\x7f-\\xff]+';
+      var sQuotedPair = '\\x5c[\\x00-\\x7f]';
+      var sDomainLiteral = '\\x5b(' + sDtext + '|' + sQuotedPair + ')*\\x5d';
+      var sQuotedString = '\\x22(' + sQtext + '|' + sQuotedPair + ')*\\x22';
+      var sDomain_ref = sAtom;
+      var sSubDomain = '(' + sDomain_ref + '|' + sDomainLiteral + ')';
+      var sWord = '(' + sAtom + '|' + sQuotedString + ')';
+      var sDomain = sSubDomain + '(\\x2e' + sSubDomain + ')*';
+      var sLocalPart = sWord + '(\\x2e' + sWord + ')*';
+      var sAddrSpec = sLocalPart + '\\x40' + sDomain; // complete RFC822 email address spec
+      var sValidEmail = '^' + sAddrSpec + '$'; // as whole string
+
+      var reValidEmail = new RegExp(sValidEmail);
+
+      return reValidEmail.test(emailAddress);
+    };
 
   </script>
 
   <script type="text/javascript">if (window.Stripe) $("#rsvpForm").show()</script>
-  <noscript><center><p><h1>JavaScript is required for the RSVP form.</h1></p></center></noscript>
+  <noscript>
+    <center>
+      <p>
+        <h1>JavaScript is required for the RSVP form.</h1>
+      </p>
+    </center>
+  </noscript>
 
 </body>
+
 </html>

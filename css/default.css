@@ -11,7 +11,6 @@ body {
 
 #lbl_contact { font:arial,sans-serif; font-size:90%; color:black; }
 #Map area { outline: none; }
-#formFrame { width:100%; margin-top:-480px; margin-left:auto; margin-right:auto; }
 
 body,td,th {
   font-size: 11px;
@@ -79,18 +78,20 @@ td { text-align: center; }
   border-radius:10px;
   background: #fff; /* fallback for browsers that don't understand rgba */
   border: solid 1px #fff; /* fallback for browsers that don't understand rgba */
-  background-color: rgba(139, 135, 135, 0.3); /* slighly transparent white */
+  background-color: rgba(139, 135, 135, 0.6); /* slighly transparent white */
   border-color: rgba(255,255,255,0.1); /*Very transparent black*/
   padding: 10px 20px;
 }
 
 #registration fieldset {
-  padding-bottom: 25px;
+  padding: 0 0 0  10px;
 
 }
 
 #registration fieldset legend {
-  font-size: 1.7em;
+  font-size: 2em;
+  text-align: left;
+  font-weight: bold;
 }
 
 .abc-radio label {
@@ -118,4 +119,22 @@ td { text-align: center; }
 
 #payment .exp .form-control {
   width: 3em;
+}
+
+/* */
+.rsvp {
+  padding: 10px 0 0 10px;
+}
+
+.rsvp .radio-label {
+  font-size: 1.8em;
+}
+
+.rsvp .rsvp-radio-row {
+  padding-bottom: 15px;
+}
+
+.rsvp .rsvp-radio-row a {
+  font-weight: bold;
+
 }
