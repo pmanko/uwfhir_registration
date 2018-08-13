@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://comingthere.com/rsvp/uwfhir/rsvp.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>2018 UW FHIR Workshop</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+  <meta property="og:title" content="">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:description" content="">
+
+  <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+
+  <!-- Favicon -->
+  <link href="https://comingthere.com/rsvp/uwfhir/img/favicon.ico" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="./2018 UW FHIR Workshop RSVP_files/css" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="./2018 UW FHIR Workshop RSVP_files/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <!-- <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="./2018 UW FHIR Workshop RSVP_files/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+  <!-- <link href='css/awesome-bootstrap-checkbox.css' rel='stylesheet'> -->
+  <link href="./2018 UW FHIR Workshop RSVP_files/default.css" rel="stylesheet">
+  
+  <!-- Main Stylesheet File -->
+  <link href="./2018 UW FHIR Workshop RSVP_files/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: Bell
+    Theme URL: https://bootstrapmade.com/bell-free-bootstrap-4-template/
+    Author: BootstrapMade.com
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
+</head>
+<body>
+<center><b>[TEST MODE]</b></center>
+  <!-- Page Content
+    ================================================== -->
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8" id="registration">
+          <h2>2018 UW FHIR Workshop Registration</h2>
+          <div class="form">
+            <form id="rsvpForm" name="rsvpForm" action="https://comingthere.com/rsvp/uwfhir/thankyou.php" method="post"> 
+              <fieldset>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <input type="text" class="name_first form-control" id="name_first_input" name="name_first" placeholder="First Name" autofocus="">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <input type="text" class="name_last form-control" id="name_last_input" name="name_last" placeholder="Last Name">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <input type="email" class="email form-control" id="email_input" name="email" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <input type="text" class="organization form-control" id="organization_input" name="organization" placeholder="Organization">
+              </div>
+              <div class="form-group">
+                <input type="text" class="title form-control" id="title_input" name="title" placeholder="Title">
+              </div>
+              </fieldset>
+
+              <fieldset>
+                <div class="form-row">
+                  <div class="form-group col-md-20">
+                    <legend>Which days will you attend?</legend>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <div class="form-check form-check-inline abc-checkbox">
+                      <input class="form-check-input" type="checkbox" name="all" id="all_input" value="yes" onclick="all_conf();">
+                      <label class="form-check-label" for="all_input">Full Conference (Sept 23 &amp; 24)</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <div class="form-check form-check-inline abc-checkbox">
+                      <input class="form-check-input" type="checkbox" name="day1" id="day1_input" value="yes" onclick="day_conf();">
+                      <label class="form-check-label" for="day1_input">Only Sept 23</label>
+                    </div>      
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <div class="form-check form-check-inline abc-checkbox">
+                      <input class="form-check-input" type="checkbox" name="day2" id="day2_input" value="yes" onclick="day_conf();">
+                      <label class="form-check-label" for="day2_input">Only Sept 24</label>
+                    </div>      
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend>
+                  Tell us what registration category you are?
+                </legend>
+
+              <fieldset>
+                <div class="form-check form-check-inline abc-radio">
+                  <input class="form-check-input" type="radio" name="student" id="studentno" value="no" onclick="calc_fee();" checked="">
+                  <label class="form-check-label" for="studentno">No</label>
+
+                  <input class="form-check-input" type="radio" name="student" id="studentyes" value="yes" onclick="calc_fee();">
+                  <label class="form-check-label" for="studentyes">Yes</label>
+
+                  <legend>
+                    Full time student? (register with your school email)
+                  </legend>
+              </div></fieldset>
+
+              <fieldset>
+                <div class="form-check form-check-inline abc-radio">
+                  <input class="form-check-input" type="radio" name="empfac" id="empfacno" value="no" onclick="calc_fee();" checked="">
+                  <label class="form-check-label" for="empfacno">No</label>
+
+                  <input class="form-check-input" type="radio" name="empfac" id="empfacyes" value="yes" onclick="calc_fee();">
+                  <label class="form-check-label" for="empfacyes">Yes</label>
+
+                  <legend>
+                    UW staff or faculty? (register with your uw email)
+                  </legend>
+              </div></fieldset>
+
+              <fieldset>
+                
+                <div class="form-check form-check-inline abc-radio">
+                  <input class="form-check-input" type="radio" name="ihts" id="ithsno" value="no" onclick="calc_fee();" checked="">
+                  <label class="form-check-label" for="memberno">No</label>
+
+                  <input class="form-check-input" type="radio" name="ihts" id="ithsyes" value="yes" onclick="calc_fee();">
+                  <label class="form-check-label" for="memberyes">Yes</label>
+
+                  <legend>
+                    ITHS affiliate? (<a href="http://hspconsortium.org/membership/member-list/" target="_blank">what does this mean?</a>)
+                  </legend>
+              </div></fieldset>
+
+              <fieldset>
+                <div class="form-check form-check-inline abc-radio">
+                  <input class="form-check-input" type="radio" name="hspc" id="hspcno" value="no" onclick="calc_fee();" checked="">
+                  <label class="form-check-label" for="memberno">No</label>
+
+                  <input class="form-check-input" type="radio" name="hspc" id="hspcyes" value="yes" onclick="calc_fee();">
+                  <label class="form-check-label" for="memberyes">Yes</label>
+
+                  <legend>
+                    HSPC affiliate? (<a href="http://hspconsortium.org/membership/member-list/" target="_blank">what does this mean?</a>)
+                  </legend>
+                </div>
+              </fieldset>
+
+              <input type="hidden" id="member_val" name="member_val" value="">
+              <input type="hidden" id="all_val" name="all_val" value="">
+              <input type="hidden" id="day1_val" name="day1_val" value="">
+              <input type="hidden" id="day2_val" name="day2_val" value="">
+
+              <h3 id="lbl_fee_total">Registration fee total: <span id="fee_total">$0</span></h3>
+              <input id="reg_fee_total" type="hidden" name="reg_fee_total">
+
+              <h4>***You must complete all fields to register***</h4>
+
+              <span id="continue_errors"></span>
+              <br>
+              <br>
+
+              <div id="continue_button">
+                <button type="button" class="continue_button btn btn-lg btn-primary" id="continue" onclick="continue_clicked();">Continue to payment</button>
+              </div>
+
+              <br>
+              <label>
+                For payment issues contact someone@somewhere<br>
+                Payments handled by Stripe will show up on your credit card statment as blah<br>
+                To be invoiced contact someonelse@somewhere.com
+              </label>
+              <br>
+              
+              <div class="card bg-dark" id="payment" style="display: none">
+                <div class="card-header">
+                  <h3>
+                    <span class="pull-left">Secure Registration Payment</span>
+                    <img class="pull-right" src="./2018 UW FHIR Workshop RSVP_files/powered_by_stripe.png">
+                  </h3>
+                </div>
+                <div class="card-body">
+
+                  <div class="form-group row">
+                    <label for="name" class="col-sm-3 col-form-label">Name on Card</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" data-stripe="name">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="number" class="col-sm-3 col-form-label">Card Number</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" data-stripe="number">
+                    </div>
+                  </div>
+                  
+                  <div class="form-group row form-inline">
+                    <label for="exp_month" class="col-sm-3 col-form-label"><span>Expiration (MM/YY)</span></label>
+                    <div class="col-sm-9">
+                      <div class="exp">
+                      <input type="text" maxlength="2" class="form-control" size="2" data-stripe="exp_month">
+                      /
+                      <input maxlength="2" class="form-control" type="text" size="2" data-stripe="exp_year"></div>
+                    </div>
+                  </div>
+
+                  <div class="form-group row form-inline">
+                    <label for="cvc" class="col-sm-3 col-form-label">CVC</label>
+                    <div class="col-sm-9">
+                      <input class="form-control" type="text" size="4" data-stripe="cvc">
+                    </div>
+                  </div>
+
+                  <span id="payment_errors" class="payment-errors"></span>
+
+                  <span id="cancel_button">
+                    <button type="button" class="cancel_button btn btn-ghost" onclick="cancel_clicked();">Cancel</button>
+                  </span>
+                  &nbsp;&nbsp;
+                  <span id="submit_button">
+                    <button type="submit" class="btn btn-primary submit" value="Submit">Submit Registration &amp; Payment</button>
+                  </span>
+                </div>
+                </div>
+              </fieldset></form></div>
+
+            
+          </div>
+        </div>
+      </div>
+    
+  </section>
+
+
+
+
+  <!-- /Hero -->
+
+
+  
+  <footer class="site-footer">
+    <div class="bottom">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-6 col-xs-12 text-lg-left text-center">
+            <p class="copyright-text">
+              © BELL Theme
+            </p>
+            <div class="credits">
+             Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+  <a class="scrolltop" href="https://comingthere.com/rsvp/uwfhir/rsvp.php#"><span class="fa fa-angle-up"></span></a>
+
+
+  <script src="./2018 UW FHIR Workshop RSVP_files/gen_validatorv4.js"></script>
+  <script src="./2018 UW FHIR Workshop RSVP_files/jquery-1.6.2.min.js"></script>
+  <script src="./2018 UW FHIR Workshop RSVP_files/jquery-ui-1.8.16.custom.min.js"></script>
+  <script src="./2018 UW FHIR Workshop RSVP_files/saved_resource"></script>
+
+  <!-- Required JavaScript Libraries -->
+  <!-- <script src="lib/jquery/jquery.min.js"></script> -->
+  <!-- <script src="lib/jquery/jquery-migrate.min.js"></script> -->
+  <script src="./2018 UW FHIR Workshop RSVP_files/bootstrap.bundle.min.js"></script>
+  <!--
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/tether/js/tether.min.js"></script>
+  <script src="lib/stellar/stellar.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/easing/easing.js"></script>
+  <script src="lib/stickyjs/sticky.js"></script>
+  <script src="lib/parallax/parallax.js"></script>
+  <script src="lib/lockfixed/lockfixed.min.js"></script>
+  -->
+
+  <!-- Template Specisifc Custom Javascript File -->
+  <!-- <script src="js/custom.js"></script> -->
+
+  <script>
+Stripe.setPublishableKey('pk_test_zLeSa94ewEyjNqWGjxw4qAnw');
+  $(function() {
+    var $form = $('#rsvpForm');
+    $form.submit(function(event) {
+      // Disable the submit button to prevent repeated clicks:
+      $form.find('.submit').prop('disabled', true);
+
+      // Request a token from Stripe:
+      Stripe.card.createToken($form, stripeResponseHandler);
+
+      // Prevent the form from being submitted:
+      return false;
+    });
+  });
+
+  function stripeResponseHandler(status, response) {
+    // Grab the form:
+    var $form = $('#rsvpForm');
+
+    if (response.error) { // Problem!
+      // Show the errors on the form:
+      $form.find('.payment-errors').text(response.error.message);
+      $form.find('.submit').prop('disabled', false); // Re-enable submission
+    } else { // Token was created!
+      // Get the token ID:
+      var token = response.id;
+      // Insert the token ID into the form so it gets submitted to the server:
+      $form.append($('<input type="hidden" name="stripeToken">').val(token));
+      // Submit the form:
+      $form.get(0).submit();
+    }
+  };
+  </script>
+
+  <script>
+  var registration_fee = {
+    day_1: { student: 15, empfac: 25, member: 50, non_member: 60 },
+    day_2: { student: 25, empfac: 75, member: 100, non_member: 150 },
+    all:   { student: 30, empfac: 100, member: 150, non_member: 200 }
+  };
+
+  var registration_total = 0;
+  var member_type = '';
+  var days_attending = '';
+
+  function calc_fee() {
+    registration_total = 0;
+    member_type = '';
+    days_attending = '';
+
+    if($('#studentyes').is(':checked')) { member_type = 'student'; }
+    else if($('#empfacyes').is(':checked')) { member_type = 'empfac'; }
+    else if($('#memberyes').is(':checked')) { member_type = 'member'; }
+    else { member_type = 'non_member'; }
+
+    if($('#all_input').is(':checked')) { days_attending = 'all'; }
+    else if($('#day1_input').is(':checked') && $('#day2_input').is(':checked')) { days_attending = 'all'; }
+    else if($('#day1_input').is(':checked')) { days_attending = 'day_1'; }
+    else if($('#day2_input').is(':checked')) { days_attending = 'day_2'; }
+
+    if(days_attending != '') {
+      registration_total = registration_fee[days_attending][member_type];
+    }
+
+    $('#fee_total').text('$' + registration_total.toString());
+  };
+
+  function all_conf() {
+    if($('#all_input').is(':checked')) {
+      $('#day1_input').prop('checked', true);
+      $('#day2_input').prop('checked', true);
+    } else {
+      $('#day1_input').prop('checked', false);
+      $('#day2_input').prop('checked', false);
+    }
+
+    calc_fee();
+  };
+
+  function day_conf() {
+   if($('#day1_input').is(':checked')&&$('#day2_input').is(':checked')) {
+      $('#all_input').prop('checked', true);
+    } else {
+      $('#all_input').prop('checked', false);
+    }
+
+    calc_fee();
+  };
+
+  function continue_clicked() {
+    calc_fee();
+
+    if($('#all_input').is(':checked')) { $('#all_val').val('yes'); } else { $('#all_val').val('no'); }
+    if($('#day1_input').is(':checked')) { $('#day1_val').val('yes'); } else { $('#day1_val').val('no'); }
+    if($('#day2_input').is(':checked')) { $('#day2_val').val('yes'); } else { $('#day2_val').val('no'); }
+
+    $('#reg_fee_total').val(registration_total.toString());
+
+    if(member_type == 'student') { $('#member_val').val('Student'); }
+    else if(member_type == 'empfac') { $('#member_val').val('EmployeeOrFaculty'); }
+    else if(member_type == 'member') { $('#member_val').val('HSPC Member'); }
+    else if(member_type == 'non_member') { $('#member_val').val('Other'); }
+
+    if(($('#name_first_input').val().length !== 0)&&
+      ($('#name_last_input').val().length !== 0)&&
+      ($('#email_input').val().length !== 0)&&
+      ($('#organization_input').val().length !== 0)&&
+      ($('#title_input').val().length !== 0)&&
+      ($('#day1_input').is(':checked')||$('#day2_input').is(':checked')||$('#all_input').is(':checked'))&&
+  (checkEmail($('#email_input').val()))) {
+        $('#continue_errors').text('');
+        $('#continue').prop('disabled',true);
+        $('#payment').show();
+        toggle_fields('off');
+    } else {
+      $('#continue_errors').show();
+      $('#continue_errors').text('Required: All fields filled in... a valid email address... and at least one day selected!');
+    }
+  };
+
+  function cancel_clicked() {
+    $('#payment').hide();
+    $('#continue_errors').text('');
+    $('#continue_errors').show();
+    $('#continue').removeProp('disabled');
+    toggle_fields('on');
+  };
+
+  function toggle_fields(d) {
+    if(d == 'off') {
+      $('#name_first_input').prop('readonly', true);
+      $('#name_last_input').prop('readonly', true);
+      $('#email_input').prop('readonly', true);
+      $('#organization_input').prop('readonly', true);
+      $('#title_input').prop('readonly', true);
+      $('#studentyes').prop('disabled', true);
+      $('#studentno').prop('disabled', true);
+      $('#empfacyes').prop('disabled', true);
+      $('#empfacno').prop('disabled', true);
+      $('#memberyes').prop('disabled', true);
+      $('#memberno').prop('disabled', true);
+      $('#day1_input').prop('disabled', true);
+      $('#day2_input').prop('disabled', true);
+      $('#all_input').prop('disabled', true);
+    } else {
+      $('#name_first_input').prop('readonly', false);
+      $('#name_last_input').prop('readonly', false);
+      $('#email_input').prop('readonly', false);
+      $('#organization_input').prop('readonly', false);
+      $('#title_input').prop('readonly', false);
+      $('#studentyes').removeProp('disabled');
+      $('#studentno').removeProp('disabled');
+      $('#empfacyes').removeProp('disabled');
+      $('#empfacno').removeProp('disabled');
+      $('#memberyes').removeProp('disabled');
+      $('#memberno').removeProp('disabled');
+      $('#all_input').removeProp('disabled');
+
+      if(!$('#all_input').is(':checked')) {
+        $('#day1_input').removeProp('disabled');
+        $('#day2_input').removeProp('disabled');
+      }
+    }
+  };
+
+  function checkEmail(emailAddress) {
+    var sQtext = '[^\\x0d\\x22\\x5c\\x80-\\xff]';
+    var sDtext = '[^\\x0d\\x5b-\\x5d\\x80-\\xff]';
+    var sAtom = '[^\\x00-\\x20\\x22\\x28\\x29\\x2c\\x2e\\x3a-\\x3c\\x3e\\x40\\x5b-\\x5d\\x7f-\\xff]+';
+    var sQuotedPair = '\\x5c[\\x00-\\x7f]';
+    var sDomainLiteral = '\\x5b(' + sDtext + '|' + sQuotedPair + ')*\\x5d';
+    var sQuotedString = '\\x22(' + sQtext + '|' + sQuotedPair + ')*\\x22';
+    var sDomain_ref = sAtom;
+    var sSubDomain = '(' + sDomain_ref + '|' + sDomainLiteral + ')';
+    var sWord = '(' + sAtom + '|' + sQuotedString + ')';
+    var sDomain = sSubDomain + '(\\x2e' + sSubDomain + ')*';
+    var sLocalPart = sWord + '(\\x2e' + sWord + ')*';
+    var sAddrSpec = sLocalPart + '\\x40' + sDomain; // complete RFC822 email address spec
+    var sValidEmail = '^' + sAddrSpec + '$'; // as whole string
+
+    var reValidEmail = new RegExp(sValidEmail);
+
+    return reValidEmail.test(emailAddress);
+  };
+
+  </script>
+
+  <script>if (window.Stripe) $("#rsvpForm").show()</script>
+  <noscript><center><p><h1>JavaScript is required for the Registration form.</h1></p></center></noscript>
+
+
+
+<iframe name="stripeXDM_default53564_provider" id="stripeXDM_default53564_provider" aria-hidden="true" src="./2018 UW FHIR Workshop RSVP_files/channel.html" frameborder="0" style="position: absolute; top: -2000px; left: 0px;"></iframe><div id="db-visiblity-check" class="visible"></div><div id="db-visiblity-check-2" class="visible"></div><iframe src="./2018 UW FHIR Workshop RSVP_files/outer.html" frameborder="0" allowtransparency="true" scrolling="no" tabindex="-1" aria-hidden="true" style="width: 1px !important; height: 1px !important; position: fixed !important; visibility: hidden !important; pointer-events: none !important;"></iframe></body></html>

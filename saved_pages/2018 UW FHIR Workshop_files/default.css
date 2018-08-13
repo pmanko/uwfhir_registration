@@ -1,0 +1,120 @@
+body {
+  background-image: url(../img/seattleSkyline_small.jpg);;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #000000;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
+
+#lbl_contact { font:arial,sans-serif; font-size:90%; color:black; }
+#Map area { outline: none; }
+
+body,td,th {
+  font-size: 11px;
+  color:black;
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+button {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+div#preloaded-images {
+  position: absolute;
+  overflow: hidden;
+  left: -9999px; 
+  top: -9999px;
+  height: 1px;
+  width: 1px;
+}
+td { text-align: center; }
+
+/* dynamic image resize */
+.image-wrapper {
+  width: 100%;
+  padding: 0px;
+  border: none;
+  -moz-border-radius: 0px;
+  -khtml-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+.image-wrapper img {
+  max-width: 100%;
+  height: auto;
+  width: auto; /* For IE8 */
+}
+.center-form
+{
+  width:650px;
+  height:430px;
+  margin:auto;
+  position: absolute;
+  top:0;left:0;bottom:0;right:0;
+  border-radius: 15px;
+  background: #ffffff;
+  opacity: 0.9;
+}
+.center-form-tall
+{
+  width:650px;
+  height:700px;
+  margin:auto;
+  position: absolute;
+  top:0;left:0;bottom:0;right:0;
+  border-radius: 15px;
+  background: #ffffff;
+  opacity: 0.9;
+}
+
+/* New Styles */
+#registration {
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius:10px;
+  background: #fff; /* fallback for browsers that don't understand rgba */
+  border: solid 1px #fff; /* fallback for browsers that don't understand rgba */
+  background-color: rgba(139, 135, 135, 0.3); /* slighly transparent white */
+  border-color: rgba(255,255,255,0.1); /*Very transparent black*/
+  padding: 10px 20px;
+}
+
+#registration fieldset {
+  padding-bottom: 25px;
+
+}
+
+#registration fieldset legend {
+  font-size: 1.7em;
+}
+
+.abc-radio label {
+  font-size: 1.5em;
+}
+
+.abc-checkbox label {
+  font-size: 1.5em;
+}
+
+#payment {
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius:10px;
+
+  background-color: rgba(52,58,64,0.5);
+}
+
+#payment label{
+  font-size: 1.5em;
+}
+#payment .exp {
+  width: 100%;
+}
+
+#payment .exp .form-control {
+  width: 3em;
+}
