@@ -88,25 +88,33 @@
 
               <br />
 
-              <fieldset>
+              <fieldset id='rsvp-days'>
                 <legend>Which days will you attend?</legend>
-                <div class="form-check form-check-inline abc-checkbox">
-                  <input class="form-check-input" type="checkbox" name='all' id="all_input" value="yes" onclick="all_conf();">
-                  <label class="form-check-label" for="all_input">Full Conference (Sept 23 & 24)</label>
+                <div class='form-row text-left rsvp-radio-row'>
+                  <div class="col form-check abc-checkbox">
+                    <input class="form-check-input" type="checkbox" name='all' id="all_input" value="yes" onclick="all_conf();">
+                    <label class="form-check-label" for="all_input">Sept 23 & 24 - Full Conference</label>
+                  </div>
                 </div>
-                <div class="form-check form-check-inline abc-checkbox">
-                  <input class="form-check-input" type="checkbox" name="day1" id="day1_input" value="yes" onclick="calc_fee();">
-                  <label class="form-check-label" for="day1_input">Only Sept 23</label>
+                <div class='form-row text-left rsvp-radio-row'>
+                  <div class="form-check col offset-sm-1 abc-checkbox">
+                    <input class="form-check-input" type="checkbox" name="day1" id="day1_input" value="yes" onclick="calc_fee();">
+                    <label class="form-check-label" for="day1_input">Sept 23 - Tutorials Only</label>
+                  </div>
                 </div>
-                <div class="form-check form-check-inline abc-checkbox">
-                  <input class="form-check-input" type="checkbox" name='day2' id="day2_input" value="yes" onclick="calc_fee();">
-                  <label class="form-check-label" for="day2_input">Only Sept 24</label>
+                <div class='form-row text-left rsvp-radio-row'>
+                  <div class="form-check col offset-sm-1 abc-checkbox">
+                    <input class="form-check-input" type="checkbox" name='day2' id="day2_input" value="yes" onclick="calc_fee();">
+                    <label class="form-check-label" for="day2_input">Sept 24 - Workshop only</label>
+                  </div>
                 </div>
+
               </fieldset>
 
+              <br />
 
               <fieldset>
-                <legend>Please tell us which registration category you fall in:</legend>
+                <legend>Which registration category do you fall in?</legend>
                 <div class='form-row text-left rsvp-radio-row'>
                   <div class='col-sm-8 radio-label'>Are you a full-time student? <span class='rsvp-hint'>(* register with your school email)</span></div>
                   <div class="form-check col-2 abc-radio">

@@ -138,3 +138,7 @@ td { text-align: center; }
   font-weight: bold;
 
 }
+
+#rsvp-days .form-check-label{
+  font-size: 1.8em;
+}
